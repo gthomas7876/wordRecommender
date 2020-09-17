@@ -59,7 +59,10 @@ export function getEditDistance(str1: string, str2: string): number {
             if (str1[i - 1] === str2[j - 1]) {// same, no change
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + euclideanDistance(str1[i - 1], str2[j - 1]));
+                const add = dp[i - 1][j] + 1;
+                const remove = dp[i][j - 1] + 1;
+                const swap = dp[i - 1][j - 1] + euclideanDistance(str1[i - 1], str2[j - 1]);
+                dp[i][j] = Math.min(add,remove,swap);
             }
         }
     }
