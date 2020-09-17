@@ -24,9 +24,6 @@ function calcOneEditDistance(w1: string): DistanceEntry[] {
     return entries;
 }
 
-// const distances = calcAllEditDistances();
-// bulkInsertIntoMongo(distances);
-
 const stdin = process.openStdin();
 console.log('Type in words and press enter to find similar/recommended words...');
 const numToShow = 10;
